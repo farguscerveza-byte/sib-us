@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Something In Between — James Beer</title>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '392763491599049');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=392763491599049&ev=PageView&noscript=1"/>
+  </noscript>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    p {
+      font-size: 13px;
+      opacity: 0.4;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <p>Opening Spotify…</p>
+
+  <script>
+    // Fire Pixel ViewContent event
+    fbq('track', 'ViewContent', {
+      content_name: 'Something In Between',
+      content_category: 'Music',
+      content_ids: ['sib_single_2026']
+    });
+
+    // Detect mobile for deep link vs web fallback
+    var ua = navigator.userAgent || '';
+    var isIOS = /iphone|ipad|ipod/i.test(ua);
+    var isAndroid = /android/i.test(ua);
+
+    var spotifyWeb = 'https://open.spotify.com/track/77CpblGVheQxfusN80JB3R';
+    var spotifyApp = 'spotify:track:77CpblGVheQxfusN80JB3R';
+
+    if (isIOS || isAndroid) {
+      // Try app deep link first, fall back to web after 1.5s
+      window.location = spotifyApp;
+      setTimeout(function() {
+        window.location = spotifyWeb;
+      }, 1500);
+    } else {
+      // Desktop: go straight to web player
+      window.location = spotifyWeb;
+    }
+  </script>
+</body>
+</html>
